@@ -1,0 +1,904 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.68 (7288) x86_64-apple-darwin13.4.0]
+
+[Workspace restored from /Users/alishathapaliya/.RData]
+[History restored from /Users/alishathapaliya/.Rapp.history]
+
+2017-05-05 12:14:58.080 R[93750:2816512] *** WARNING: Method convertPointFromBase: in class NSView is deprecated on 10.7 and later. It should not be used in new applications. 
+> library(MASS)
+> data(iris)
+> iris[,-5]
+    Sepal.Length Sepal.Width Petal.Length Petal.Width
+1            5.1         3.5          1.4         0.2
+2            4.9         3.0          1.4         0.2
+3            4.7         3.2          1.3         0.2
+4            4.6         3.1          1.5         0.2
+5            5.0         3.6          1.4         0.2
+6            5.4         3.9          1.7         0.4
+7            4.6         3.4          1.4         0.3
+8            5.0         3.4          1.5         0.2
+9            4.4         2.9          1.4         0.2
+10           4.9         3.1          1.5         0.1
+11           5.4         3.7          1.5         0.2
+12           4.8         3.4          1.6         0.2
+13           4.8         3.0          1.4         0.1
+14           4.3         3.0          1.1         0.1
+15           5.8         4.0          1.2         0.2
+16           5.7         4.4          1.5         0.4
+17           5.4         3.9          1.3         0.4
+18           5.1         3.5          1.4         0.3
+19           5.7         3.8          1.7         0.3
+20           5.1         3.8          1.5         0.3
+21           5.4         3.4          1.7         0.2
+22           5.1         3.7          1.5         0.4
+23           4.6         3.6          1.0         0.2
+24           5.1         3.3          1.7         0.5
+25           4.8         3.4          1.9         0.2
+26           5.0         3.0          1.6         0.2
+27           5.0         3.4          1.6         0.4
+28           5.2         3.5          1.5         0.2
+29           5.2         3.4          1.4         0.2
+30           4.7         3.2          1.6         0.2
+31           4.8         3.1          1.6         0.2
+32           5.4         3.4          1.5         0.4
+33           5.2         4.1          1.5         0.1
+34           5.5         4.2          1.4         0.2
+35           4.9         3.1          1.5         0.2
+36           5.0         3.2          1.2         0.2
+37           5.5         3.5          1.3         0.2
+38           4.9         3.6          1.4         0.1
+39           4.4         3.0          1.3         0.2
+40           5.1         3.4          1.5         0.2
+41           5.0         3.5          1.3         0.3
+42           4.5         2.3          1.3         0.3
+43           4.4         3.2          1.3         0.2
+44           5.0         3.5          1.6         0.6
+45           5.1         3.8          1.9         0.4
+46           4.8         3.0          1.4         0.3
+47           5.1         3.8          1.6         0.2
+48           4.6         3.2          1.4         0.2
+49           5.3         3.7          1.5         0.2
+50           5.0         3.3          1.4         0.2
+51           7.0         3.2          4.7         1.4
+52           6.4         3.2          4.5         1.5
+53           6.9         3.1          4.9         1.5
+54           5.5         2.3          4.0         1.3
+55           6.5         2.8          4.6         1.5
+56           5.7         2.8          4.5         1.3
+57           6.3         3.3          4.7         1.6
+58           4.9         2.4          3.3         1.0
+59           6.6         2.9          4.6         1.3
+60           5.2         2.7          3.9         1.4
+61           5.0         2.0          3.5         1.0
+62           5.9         3.0          4.2         1.5
+63           6.0         2.2          4.0         1.0
+64           6.1         2.9          4.7         1.4
+65           5.6         2.9          3.6         1.3
+66           6.7         3.1          4.4         1.4
+67           5.6         3.0          4.5         1.5
+68           5.8         2.7          4.1         1.0
+69           6.2         2.2          4.5         1.5
+70           5.6         2.5          3.9         1.1
+71           5.9         3.2          4.8         1.8
+72           6.1         2.8          4.0         1.3
+73           6.3         2.5          4.9         1.5
+74           6.1         2.8          4.7         1.2
+75           6.4         2.9          4.3         1.3
+76           6.6         3.0          4.4         1.4
+77           6.8         2.8          4.8         1.4
+78           6.7         3.0          5.0         1.7
+79           6.0         2.9          4.5         1.5
+80           5.7         2.6          3.5         1.0
+81           5.5         2.4          3.8         1.1
+82           5.5         2.4          3.7         1.0
+83           5.8         2.7          3.9         1.2
+84           6.0         2.7          5.1         1.6
+85           5.4         3.0          4.5         1.5
+86           6.0         3.4          4.5         1.6
+87           6.7         3.1          4.7         1.5
+88           6.3         2.3          4.4         1.3
+89           5.6         3.0          4.1         1.3
+90           5.5         2.5          4.0         1.3
+91           5.5         2.6          4.4         1.2
+92           6.1         3.0          4.6         1.4
+93           5.8         2.6          4.0         1.2
+94           5.0         2.3          3.3         1.0
+95           5.6         2.7          4.2         1.3
+96           5.7         3.0          4.2         1.2
+97           5.7         2.9          4.2         1.3
+98           6.2         2.9          4.3         1.3
+99           5.1         2.5          3.0         1.1
+100          5.7         2.8          4.1         1.3
+101          6.3         3.3          6.0         2.5
+102          5.8         2.7          5.1         1.9
+103          7.1         3.0          5.9         2.1
+104          6.3         2.9          5.6         1.8
+105          6.5         3.0          5.8         2.2
+106          7.6         3.0          6.6         2.1
+107          4.9         2.5          4.5         1.7
+108          7.3         2.9          6.3         1.8
+109          6.7         2.5          5.8         1.8
+110          7.2         3.6          6.1         2.5
+111          6.5         3.2          5.1         2.0
+112          6.4         2.7          5.3         1.9
+113          6.8         3.0          5.5         2.1
+114          5.7         2.5          5.0         2.0
+115          5.8         2.8          5.1         2.4
+116          6.4         3.2          5.3         2.3
+117          6.5         3.0          5.5         1.8
+118          7.7         3.8          6.7         2.2
+119          7.7         2.6          6.9         2.3
+120          6.0         2.2          5.0         1.5
+121          6.9         3.2          5.7         2.3
+122          5.6         2.8          4.9         2.0
+123          7.7         2.8          6.7         2.0
+124          6.3         2.7          4.9         1.8
+125          6.7         3.3          5.7         2.1
+126          7.2         3.2          6.0         1.8
+127          6.2         2.8          4.8         1.8
+128          6.1         3.0          4.9         1.8
+129          6.4         2.8          5.6         2.1
+130          7.2         3.0          5.8         1.6
+131          7.4         2.8          6.1         1.9
+132          7.9         3.8          6.4         2.0
+133          6.4         2.8          5.6         2.2
+134          6.3         2.8          5.1         1.5
+135          6.1         2.6          5.6         1.4
+136          7.7         3.0          6.1         2.3
+137          6.3         3.4          5.6         2.4
+138          6.4         3.1          5.5         1.8
+139          6.0         3.0          4.8         1.8
+140          6.9         3.1          5.4         2.1
+141          6.7         3.1          5.6         2.4
+142          6.9         3.1          5.1         2.3
+143          5.8         2.7          5.1         1.9
+144          6.8         3.2          5.9         2.3
+145          6.7         3.3          5.7         2.5
+146          6.7         3.0          5.2         2.3
+147          6.3         2.5          5.0         1.9
+148          6.5         3.0          5.2         2.0
+149          6.2         3.4          5.4         2.3
+150          5.9         3.0          5.1         1.8
+> d<-dist(iris[,-5],method='euclidean') 
+> h<-hclust(d,method='sin')
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='')
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> plot(X[,1],X[,2],pch=19)
+Error in plot(X[, 1], X[, 2], pch = 19) : object 'X' not found
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+Error in points(X[I1, 1], X[I1, 2], col = "red", pch = 19) : 
+  object 'X' not found
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+Error in points(X[I2, 1], X[I2, 2], col = "blue", pch = 19) : 
+  object 'X' not found
+> X<-cbind(iris[,3],iris[,4])
+> X
+       [,1] [,2]
+  [1,]  1.4  0.2
+  [2,]  1.4  0.2
+  [3,]  1.3  0.2
+  [4,]  1.5  0.2
+  [5,]  1.4  0.2
+  [6,]  1.7  0.4
+  [7,]  1.4  0.3
+  [8,]  1.5  0.2
+  [9,]  1.4  0.2
+ [10,]  1.5  0.1
+ [11,]  1.5  0.2
+ [12,]  1.6  0.2
+ [13,]  1.4  0.1
+ [14,]  1.1  0.1
+ [15,]  1.2  0.2
+ [16,]  1.5  0.4
+ [17,]  1.3  0.4
+ [18,]  1.4  0.3
+ [19,]  1.7  0.3
+ [20,]  1.5  0.3
+ [21,]  1.7  0.2
+ [22,]  1.5  0.4
+ [23,]  1.0  0.2
+ [24,]  1.7  0.5
+ [25,]  1.9  0.2
+ [26,]  1.6  0.2
+ [27,]  1.6  0.4
+ [28,]  1.5  0.2
+ [29,]  1.4  0.2
+ [30,]  1.6  0.2
+ [31,]  1.6  0.2
+ [32,]  1.5  0.4
+ [33,]  1.5  0.1
+ [34,]  1.4  0.2
+ [35,]  1.5  0.2
+ [36,]  1.2  0.2
+ [37,]  1.3  0.2
+ [38,]  1.4  0.1
+ [39,]  1.3  0.2
+ [40,]  1.5  0.2
+ [41,]  1.3  0.3
+ [42,]  1.3  0.3
+ [43,]  1.3  0.2
+ [44,]  1.6  0.6
+ [45,]  1.9  0.4
+ [46,]  1.4  0.3
+ [47,]  1.6  0.2
+ [48,]  1.4  0.2
+ [49,]  1.5  0.2
+ [50,]  1.4  0.2
+ [51,]  4.7  1.4
+ [52,]  4.5  1.5
+ [53,]  4.9  1.5
+ [54,]  4.0  1.3
+ [55,]  4.6  1.5
+ [56,]  4.5  1.3
+ [57,]  4.7  1.6
+ [58,]  3.3  1.0
+ [59,]  4.6  1.3
+ [60,]  3.9  1.4
+ [61,]  3.5  1.0
+ [62,]  4.2  1.5
+ [63,]  4.0  1.0
+ [64,]  4.7  1.4
+ [65,]  3.6  1.3
+ [66,]  4.4  1.4
+ [67,]  4.5  1.5
+ [68,]  4.1  1.0
+ [69,]  4.5  1.5
+ [70,]  3.9  1.1
+ [71,]  4.8  1.8
+ [72,]  4.0  1.3
+ [73,]  4.9  1.5
+ [74,]  4.7  1.2
+ [75,]  4.3  1.3
+ [76,]  4.4  1.4
+ [77,]  4.8  1.4
+ [78,]  5.0  1.7
+ [79,]  4.5  1.5
+ [80,]  3.5  1.0
+ [81,]  3.8  1.1
+ [82,]  3.7  1.0
+ [83,]  3.9  1.2
+ [84,]  5.1  1.6
+ [85,]  4.5  1.5
+ [86,]  4.5  1.6
+ [87,]  4.7  1.5
+ [88,]  4.4  1.3
+ [89,]  4.1  1.3
+ [90,]  4.0  1.3
+ [91,]  4.4  1.2
+ [92,]  4.6  1.4
+ [93,]  4.0  1.2
+ [94,]  3.3  1.0
+ [95,]  4.2  1.3
+ [96,]  4.2  1.2
+ [97,]  4.2  1.3
+ [98,]  4.3  1.3
+ [99,]  3.0  1.1
+[100,]  4.1  1.3
+[101,]  6.0  2.5
+[102,]  5.1  1.9
+[103,]  5.9  2.1
+[104,]  5.6  1.8
+[105,]  5.8  2.2
+[106,]  6.6  2.1
+[107,]  4.5  1.7
+[108,]  6.3  1.8
+[109,]  5.8  1.8
+[110,]  6.1  2.5
+[111,]  5.1  2.0
+[112,]  5.3  1.9
+[113,]  5.5  2.1
+[114,]  5.0  2.0
+[115,]  5.1  2.4
+[116,]  5.3  2.3
+[117,]  5.5  1.8
+[118,]  6.7  2.2
+[119,]  6.9  2.3
+[120,]  5.0  1.5
+[121,]  5.7  2.3
+[122,]  4.9  2.0
+[123,]  6.7  2.0
+[124,]  4.9  1.8
+[125,]  5.7  2.1
+[126,]  6.0  1.8
+[127,]  4.8  1.8
+[128,]  4.9  1.8
+[129,]  5.6  2.1
+[130,]  5.8  1.6
+[131,]  6.1  1.9
+[132,]  6.4  2.0
+[133,]  5.6  2.2
+[134,]  5.1  1.5
+[135,]  5.6  1.4
+[136,]  6.1  2.3
+[137,]  5.6  2.4
+[138,]  5.5  1.8
+[139,]  4.8  1.8
+[140,]  5.4  2.1
+[141,]  5.6  2.4
+[142,]  5.1  2.3
+[143,]  5.1  1.9
+[144,]  5.9  2.3
+[145,]  5.7  2.5
+[146,]  5.2  2.3
+[147,]  5.0  1.9
+[148,]  5.2  2.0
+[149,]  5.4  2.3
+[150,]  5.1  1.8
+> d<-dist(iris[,3:4],method='euclidean') 
+> h<-hclust(d,method='sin')
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> d<-dist(iris[,3:4],method='euclidean') 
+> h<-hclust(d,method='sin')
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> d<-dist(X,method='euclidean') 
+> h<-hclust(d,method='sin')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='')
+> 
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> quartz()
+> plot(X[,1],X[,2],pch=19)
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+> table(c,iris$Species)
+   
+c   setosa versicolor virginica
+  1     50          0         0
+  2      0         49        50
+  3      0          1         0
+> a<-iris[#:4]
++ 
+> a<-iris[,3:4]
+> a
+    Petal.Length Petal.Width
+1            1.4         0.2
+2            1.4         0.2
+3            1.3         0.2
+4            1.5         0.2
+5            1.4         0.2
+6            1.7         0.4
+7            1.4         0.3
+8            1.5         0.2
+9            1.4         0.2
+10           1.5         0.1
+11           1.5         0.2
+12           1.6         0.2
+13           1.4         0.1
+14           1.1         0.1
+15           1.2         0.2
+16           1.5         0.4
+17           1.3         0.4
+18           1.4         0.3
+19           1.7         0.3
+20           1.5         0.3
+21           1.7         0.2
+22           1.5         0.4
+23           1.0         0.2
+24           1.7         0.5
+25           1.9         0.2
+26           1.6         0.2
+27           1.6         0.4
+28           1.5         0.2
+29           1.4         0.2
+30           1.6         0.2
+31           1.6         0.2
+32           1.5         0.4
+33           1.5         0.1
+34           1.4         0.2
+35           1.5         0.2
+36           1.2         0.2
+37           1.3         0.2
+38           1.4         0.1
+39           1.3         0.2
+40           1.5         0.2
+41           1.3         0.3
+42           1.3         0.3
+43           1.3         0.2
+44           1.6         0.6
+45           1.9         0.4
+46           1.4         0.3
+47           1.6         0.2
+48           1.4         0.2
+49           1.5         0.2
+50           1.4         0.2
+51           4.7         1.4
+52           4.5         1.5
+53           4.9         1.5
+54           4.0         1.3
+55           4.6         1.5
+56           4.5         1.3
+57           4.7         1.6
+58           3.3         1.0
+59           4.6         1.3
+60           3.9         1.4
+61           3.5         1.0
+62           4.2         1.5
+63           4.0         1.0
+64           4.7         1.4
+65           3.6         1.3
+66           4.4         1.4
+67           4.5         1.5
+68           4.1         1.0
+69           4.5         1.5
+70           3.9         1.1
+71           4.8         1.8
+72           4.0         1.3
+73           4.9         1.5
+74           4.7         1.2
+75           4.3         1.3
+76           4.4         1.4
+77           4.8         1.4
+78           5.0         1.7
+79           4.5         1.5
+80           3.5         1.0
+81           3.8         1.1
+82           3.7         1.0
+83           3.9         1.2
+84           5.1         1.6
+85           4.5         1.5
+86           4.5         1.6
+87           4.7         1.5
+88           4.4         1.3
+89           4.1         1.3
+90           4.0         1.3
+91           4.4         1.2
+92           4.6         1.4
+93           4.0         1.2
+94           3.3         1.0
+95           4.2         1.3
+96           4.2         1.2
+97           4.2         1.3
+98           4.3         1.3
+99           3.0         1.1
+100          4.1         1.3
+101          6.0         2.5
+102          5.1         1.9
+103          5.9         2.1
+104          5.6         1.8
+105          5.8         2.2
+106          6.6         2.1
+107          4.5         1.7
+108          6.3         1.8
+109          5.8         1.8
+110          6.1         2.5
+111          5.1         2.0
+112          5.3         1.9
+113          5.5         2.1
+114          5.0         2.0
+115          5.1         2.4
+116          5.3         2.3
+117          5.5         1.8
+118          6.7         2.2
+119          6.9         2.3
+120          5.0         1.5
+121          5.7         2.3
+122          4.9         2.0
+123          6.7         2.0
+124          4.9         1.8
+125          5.7         2.1
+126          6.0         1.8
+127          4.8         1.8
+128          4.9         1.8
+129          5.6         2.1
+130          5.8         1.6
+131          6.1         1.9
+132          6.4         2.0
+133          5.6         2.2
+134          5.1         1.5
+135          5.6         1.4
+136          6.1         2.3
+137          5.6         2.4
+138          5.5         1.8
+139          4.8         1.8
+140          5.4         2.1
+141          5.6         2.4
+142          5.1         2.3
+143          5.1         1.9
+144          5.9         2.3
+145          5.7         2.5
+146          5.2         2.3
+147          5.0         1.9
+148          5.2         2.0
+149          5.4         2.3
+150          5.1         1.8
+> X<-iris[,3:4]
+> X
+    Petal.Length Petal.Width
+1            1.4         0.2
+2            1.4         0.2
+3            1.3         0.2
+4            1.5         0.2
+5            1.4         0.2
+6            1.7         0.4
+7            1.4         0.3
+8            1.5         0.2
+9            1.4         0.2
+10           1.5         0.1
+11           1.5         0.2
+12           1.6         0.2
+13           1.4         0.1
+14           1.1         0.1
+15           1.2         0.2
+16           1.5         0.4
+17           1.3         0.4
+18           1.4         0.3
+19           1.7         0.3
+20           1.5         0.3
+21           1.7         0.2
+22           1.5         0.4
+23           1.0         0.2
+24           1.7         0.5
+25           1.9         0.2
+26           1.6         0.2
+27           1.6         0.4
+28           1.5         0.2
+29           1.4         0.2
+30           1.6         0.2
+31           1.6         0.2
+32           1.5         0.4
+33           1.5         0.1
+34           1.4         0.2
+35           1.5         0.2
+36           1.2         0.2
+37           1.3         0.2
+38           1.4         0.1
+39           1.3         0.2
+40           1.5         0.2
+41           1.3         0.3
+42           1.3         0.3
+43           1.3         0.2
+44           1.6         0.6
+45           1.9         0.4
+46           1.4         0.3
+47           1.6         0.2
+48           1.4         0.2
+49           1.5         0.2
+50           1.4         0.2
+51           4.7         1.4
+52           4.5         1.5
+53           4.9         1.5
+54           4.0         1.3
+55           4.6         1.5
+56           4.5         1.3
+57           4.7         1.6
+58           3.3         1.0
+59           4.6         1.3
+60           3.9         1.4
+61           3.5         1.0
+62           4.2         1.5
+63           4.0         1.0
+64           4.7         1.4
+65           3.6         1.3
+66           4.4         1.4
+67           4.5         1.5
+68           4.1         1.0
+69           4.5         1.5
+70           3.9         1.1
+71           4.8         1.8
+72           4.0         1.3
+73           4.9         1.5
+74           4.7         1.2
+75           4.3         1.3
+76           4.4         1.4
+77           4.8         1.4
+78           5.0         1.7
+79           4.5         1.5
+80           3.5         1.0
+81           3.8         1.1
+82           3.7         1.0
+83           3.9         1.2
+84           5.1         1.6
+85           4.5         1.5
+86           4.5         1.6
+87           4.7         1.5
+88           4.4         1.3
+89           4.1         1.3
+90           4.0         1.3
+91           4.4         1.2
+92           4.6         1.4
+93           4.0         1.2
+94           3.3         1.0
+95           4.2         1.3
+96           4.2         1.2
+97           4.2         1.3
+98           4.3         1.3
+99           3.0         1.1
+100          4.1         1.3
+101          6.0         2.5
+102          5.1         1.9
+103          5.9         2.1
+104          5.6         1.8
+105          5.8         2.2
+106          6.6         2.1
+107          4.5         1.7
+108          6.3         1.8
+109          5.8         1.8
+110          6.1         2.5
+111          5.1         2.0
+112          5.3         1.9
+113          5.5         2.1
+114          5.0         2.0
+115          5.1         2.4
+116          5.3         2.3
+117          5.5         1.8
+118          6.7         2.2
+119          6.9         2.3
+120          5.0         1.5
+121          5.7         2.3
+122          4.9         2.0
+123          6.7         2.0
+124          4.9         1.8
+125          5.7         2.1
+126          6.0         1.8
+127          4.8         1.8
+128          4.9         1.8
+129          5.6         2.1
+130          5.8         1.6
+131          6.1         1.9
+132          6.4         2.0
+133          5.6         2.2
+134          5.1         1.5
+135          5.6         1.4
+136          6.1         2.3
+137          5.6         2.4
+138          5.5         1.8
+139          4.8         1.8
+140          5.4         2.1
+141          5.6         2.4
+142          5.1         2.3
+143          5.1         1.9
+144          5.9         2.3
+145          5.7         2.5
+146          5.2         2.3
+147          5.0         1.9
+148          5.2         2.0
+149          5.4         2.3
+150          5.1         1.8
+> d<-dist(X,method='euclidean') 
+> h<-hclust(d,method='sin')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> quartz()
+> plot(X[,1],X[,2],pch=19)
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+> 
+> table(c,iris$Species)
+   
+c   setosa versicolor virginica
+  1     50          0         0
+  2      0         49        50
+  3      0          1         0
+> d<-dist(X,method='euclidean') 
+> h<-hclust(d,method='com')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> quartz()
+> plot(X[,1],X[,2],pch=19)
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+> d<-dist(X,method='euclidean') 
+> h<-hclust(d,method='ave')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> quartz()
+> plot(X[,1],X[,2],pch=19)
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+> d<-dist(X,method='euclidean') 
+> h<-hclust(d,method='com')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> quartz()
+> plot(X[,1],X[,2],pch=19)
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+> 
+> table(c,iris$Species)
+   
+c   setosa versicolor virginica
+  1     50          0         0
+  2      0         21        50
+  3      0         29         0
+> d<-dist(X,method='euclidean') 
+> h<-hclust(d,method='ave')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> 
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> quartz()
+> plot(X[,1],X[,2],pch=19)
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+> table(c,iris$Species)
+   
+c   setosa versicolor virginica
+  1     50          0         0
+  2      0         45         1
+  3      0          5        49
+> X = rbind(X,Y)
+Error in rbind(X, Y) : object 'Y' not found
+> d<-dist(X,method='euclidean') 
+> h<-hclust(d,method='med')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> quartz()
+> plot(X[,1],X[,2],pch=19)
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+> table(c,iris$Species)
+   
+c   setosa versicolor virginica
+  1     50          0         0
+  2      0         45         1
+  3      0          5        49
+> d<-dist(X,method='euclidean') 
+> h<-hclust(d,method='median')
+> c<-cutree(h,k=3)
+> table(c,iris$Species)
+   
+c   setosa versicolor virginica
+  1     50          0         0
+  2      0         45         1
+  3      0          5        49
+> d<-dist(X,method='manhattan') 
+> h<-hclust(d,method='single')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> 
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> quartz()
+> plot(X[,1],X[,2],pch=19)
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+> 
+> table(c,iris$Species)
+   
+c   setosa versicolor virginica
+  1     50          0         0
+  2      0         50        49
+  3      0          0         1
+> d<-dist(X,method='manhattan') 
+> h<-hclust(d,method='com')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> 
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> quartz()
+> plot(X[,1],X[,2],pch=19)
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+> table(c,iris$Species)
+   
+c   setosa versicolor virginica
+  1     50          0         0
+  2      0         45         1
+  3      0          5        49
+> d<-dist(X,method='manhattan') 
+> h<-hclust(d,method='ave')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+> c<-cutree(h,k=3)
+> I1<-c==1
+> I2<-c==2
+> quartz()
+> plot(X[,1],X[,2],pch=19)
+> points(X[I1,1],X[I1,2],col='red',pch=19)
+> points(X[I2,1],X[I2,2],col='blue',pch=19)
+> table(c,iris$Species)
+   
+c   setosa versicolor virginica
+  1     50          0         0
+  2      0         45         1
+  3      0          5        49
+> X = mvrnorm(n=50,c(0,0),diag(c(1,1)))
+> Y = mvrnorm(n=50,c(10,10),diag(c(1,1)))
+> X = rbind(X,Y)
+> d<-dist(X,method='manhattan') 
+> h<-hclust(d,method='med')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+Error in graphics:::plotHclust(n1, merge, height, order(x$order), hang,  : 
+  invalid dendrogram input
+> 
+> d<-dist(X,method='manhattan') 
+> h<-hclust(d,method='median')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+Error in graphics:::plotHclust(n1, merge, height, order(x$order), hang,  : 
+  invalid dendrogram input
+> d<-dist(X,method='manhattan') 
+> h<-hclust(d,method='median')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+Error in graphics:::plotHclust(n1, merge, height, order(x$order), hang,  : 
+  invalid dendrogram input
+> d<-dist(X,method='minkowski', p = 2) 
+> h<-hclust(d,method='single')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+Error in graphics:::plotHclust(n1, merge, height, order(x$order), hang,  : 
+  invalid dendrogram input
+> 
+> 
+> d<-dist(X,method='minkowski', p = 10) 
+> h<-hclust(d,method='single')
+> 
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+Error in graphics:::plotHclust(n1, merge, height, order(x$order), hang,  : 
+  invalid dendrogram input
+> 
+> d<-dist(X,method='manhattan') 
+> h<-hclust(d,method='com')
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='')
+> 
+> d<-dist(X,method='manhattan') 
+> h<-hclust(d,method='single')
+> quartz()
+> par(bg='yellow')
+> plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+Error in graphics:::plotHclust(n1, merge, height, order(x$order), hang,  : 
+  invalid dendrogram input
+> 

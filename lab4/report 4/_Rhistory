@@ -1,0 +1,512 @@
+#=====================================================#
+#                     Assignment 8
+#=====================================================#
+invMvnSigmaP3 <- solve( cov( mvnSigmaP3 ) )
+devVectorMvnSigmaP3 <- rep( 0, 500 )
+for( i in 1:500 )
+  devVectorMvnSigmaP3[ i ] <- t( mvnSigmaP3[ i, ] ) %*% invMvnSigmaP3 %*% mvnSigmaP3[ i, ]
+qqplot( qchisq( seq( 1,500 ) / 500, 2 ), devVectorMvnSigmaP3 )
+segments( 0, 0, 10, 10, col = 'red', lwd = 2 )
+grid( )
+ks.test( devVectorMvnSigmaP3, "pchisq" , 2 )
+invMvnSigmaP3 <- solve( cov( mvnSigmaP3 ) )
+devVectorMvnSigmaP3 <- rep( 0, 500 )
+for( i in 1:500 )
+  devVectorMvnSigmaP3[ i ] <- t( mvnSigmaP3[ i, ] ) %*% invMvnSigmaP3 %*% mvnSigmaP3[ i, ]
+qqplot( qchisq( seq( 1,500 ) / 500, 2 ), devVectorMvnSigmaP3 )
+segments( 0, 0, 10, 10, col = 'red', lwd = 2 )
+grid( )
+ks.test( devVectorMvnSigmaP3, "pchisq" , 2 )
+invMvnSigmaP3 <- solve( cov( mvnSigmaP3 ) )
+devVectorMvnSigmaP3 <- rep( 0, 500 )
+for( i in 1:500 )
+  devVectorMvnSigmaP3[ i ] <- t( mvnSigmaP3[ i, ] ) %*% invMvnSigmaP3 %*% mvnSigmaP3[ i, ]
+qqplot( qchisq( seq( 1,500 ) / 500, 2 ), devVectorMvnSigmaP3 )
+segments( 0, 0, 10, 10, col = 'red', lwd = 2 )
+grid( )
+ks.test( devVectorMvnSigmaP3, "pchisq" , 2 )
+cubeMvnSigmaP3 <- mvnSigmaP3 ^ 3
+invCubeMvnSigmaP3 <- solve( cov( cubeMvnSigmaP3 ) )
+devVectorCubeMvnSigmaP3 <- rep( 0, 500 )
+for( i in 1:500 )
+  devVectorCubeMvnSigmaP3[ i ] <- t( cubeMvnSigmaP3[ i, ] ) %*% invCubeMvnSigmaP3 %*% cubeMvnSigmaP3[ i, ]
+qqplot( qchisq( seq( 1,500 ) / 500, 2 ), devVectorCubeMvnSigmaP3 )
+segments( 0, 0, 10, 10, col = 'red', lwd = 2 )
+grid( )
+ks.test( devVectorCubeMvnSigmaP3, "pchisq" , 2 )
+SigmaP3 <- matrix( c ( 10, 4, 1, 4, 5, 4, 1, 4, 10 ), 3, 3 )
+identity3D <- diag( c( 1, 1, 1 ) )
+std3DNorm <- mvrnorm( n = 500, c( 0, 0, 0 ), identity3D )
+eigenSigmaP3 <- eigen( SigmaP3 )
+sqrtSigmaP3 <- eigenSigmaP3$vectors %*% sqrt( diag( eigenSigmaP3$values ) ) %*% t( eigenSigmaP3$vectors )
+mvnSigmaP3 <- t( sqrtSigmaP3 %*% t( std3DNorm ) )
+SigmaP3 <- matrix( c ( 10, 4, 1, 4, 5, 4, 1, 4, 10 ), 3, 3 )
+identity3D <- diag( c( 1, 1, 1 ) )
+std3DNorm <- mvrnorm( n = 500, c( 0, 0, 0 ), identity3D )
+eigenSigmaP3 <- eigen( SigmaP3 )
+sqrtSigmaP3 <- eigenSigmaP3$vectors %*% sqrt( diag( eigenSigmaP3$values ) ) %*% t( eigenSigmaP3$vectors )
+mvnSigmaP3 <- t( sqrtSigmaP3 %*% t( std3DNorm ) )
+SigmaP3 <- matrix( c ( 10, 4, 1, 4, 5, 4, 1, 4, 10 ), 3, 3 )
+identity3D <- diag( c( 1, 1, 1 ) )
+std3DNorm <- mvrnorm( n = 1000, c( 0, 0, 0 ), identity3D )
+eigenSigmaP3 <- eigen( SigmaP3 )
+sqrtSigmaP3 <- eigenSigmaP3$vectors %*% sqrt( diag( eigenSigmaP3$values ) ) %*% t( eigenSigmaP3$vectors )
+mvnSigmaP3 <- t( sqrtSigmaP3 %*% t( std3DNorm ) )
+mvnSigmaP3 <- t( sqrtSigmaP3 %*% t( std3DNorm ) )
+std3DNorm <- mvrnorm( n = 500, c( 0, 0, 0 ), identity3D )
+SigmaP3 <- matrix( c ( 10, 4, 1, 4, 5, 4, 1, 4, 10 ), 3, 3 )
+identity3D <- diag( c( 1, 1, 1 ) )
+std3DNorm <- mvrnorm( n = 500, c( 0, 0, 0 ), identity3D )
+eigenSigmaP3 <- eigen( SigmaP3 )
+sqrtSigmaP3 <- eigenSigmaP3$vectors %*% sqrt( diag( eigenSigmaP3$values ) ) %*% t( eigenSigmaP3$vectors )
+mvnSigmaP3 <- t( sqrtSigmaP3 %*% t( std3DNorm ) )
+invMvnSigmaP3 <- solve( cov( mvnSigmaP3 ) )
+devVectorMvnSigmaP3 <- rep( 0, 500 )
+for( i in 1:500 )
+  devVectorMvnSigmaP3[ i ] <- t( mvnSigmaP3[ i, ] ) %*% invMvnSigmaP3 %*% mvnSigmaP3[ i, ]
+qqplot( qchisq( seq( 1,500 ) / 500, 3 ), devVectorMvnSigmaP3 )
+segments( 0, 0, 10, 10, col = 'red', lwd = 2 )
+grid( )
+ks.test( devVectorMvnSigmaP3, "pchisq" , 2 )
+cubeMvnSigmaP3 <- mvnSigmaP3 ^ 3
+invCubeMvnSigmaP3 <- solve( cov( cubeMvnSigmaP3 ) )
+devVectorCubeMvnSigmaP3 <- rep( 0, 500 )
+for( i in 1:500 )
+  devVectorCubeMvnSigmaP3[ i ] <- t( cubeMvnSigmaP3[ i, ] ) %*% invCubeMvnSigmaP3 %*% cubeMvnSigmaP3[ i, ]
+qqplot( qchisq( seq( 1,500 ) / 500, 3 ), devVectorCubeMvnSigmaP3 )
+segments( 0, 0, 10, 10, col = 'red', lwd = 2 )
+grid( )
+ks.test( devVectorCubeMvnSigmaP3, "pchisq" , 2 )
+q()
+sigma=as.matrix(c(1,2,3,4))
+sigma
+sigma=as.matrix(c(1,2,3,4),r=2)
+sigma
+sigma<=matrix(c(10,2,2,2),2,2)
+sigma=matrix(c(10,2,2,2),2,2)
+sigma
+a=rnorm(500,c(0,0),sigma)
+a
+qqnorm(x)
+load("C:\\Users\\btimalsina\\Documents\\.RData")
+Sigma <- matrix(c(10,4,4,2),2,2)
+mvrnorm(n=1,c(0,0),Sigma) # sample 1x2 with mean [0,0]
+mvrnorm(n=5,c(0,0),Sigma) # sample 5x2 with mean [0,0]
+#=================================================
+library(Matrix)   # ... for matrix operations
+library(car)      # ... for ellipse plots
+library(stats)    # ... for statistical operations
+library(MASS)     # ... for Multivariate Normal Distribution
+library(graphics) # ... for arrows
+Sigma <- matrix(c(10,4,4,2),2,2)
+mvrnorm(n=1,c(0,0),Sigma) # sample 1x2 with mean [0,0]
+mvrnorm(n=5,c(0,0),Sigma) # sample 5x2 with mean [0,0]
+len<-1000
+N<-matrix(rnorm(len*2),len,2) 
+N
+len<-1000
+N<-matrix(rnorm(len*2),len,2) 
+len=1000               
+X<-mvrnorm(n=len,c(0,0),Sigma)     # 1000x2 MVN rv
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+ks.test(d,"pchisq",2) # formal KS test
+N<-matrix(N^2,len,2) 
+len<-1000
+N<-matrix(rnorm(len*2),len,2) 
+len=1000               
+X<-mvrnorm(n=len,c(0,0),Sigma)     # 1000x2 MVN rv
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+N2<-matrix(N^2,len,2) 
+N
+N2
+N4<-matrix(N^4,len,2) 
+len=1000               
+X<-mvrnorm(n=len,c(0,0),Sigma)     # 1000x2 MVN rv
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+ks.test(d,"pchisq",2) # formal KS test
+len=1000               
+X<-mvrnorm(n=len,c(0,0),Sigma)     # 1000x2 MVN rv
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+ks.test(d,"pchisq",2) # formal KS test
+len<-1000
+N<-matrix(rnorm(len*2),len,2)
+N
+X<-matrix(N^4,len,2)
+X
+len<-5
+N<-matrix(rnorm(len*2),len,2)
+X<-matrix(N^4,len,2)
+N
+X
+len<-1000
+N<-matrix(rnorm(len*2),len,2)
+X<-matrix(N^4,len,2)
+N=X
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+ks.test(d,"pchisq",2) # formal KS test
+len<-1000
+N<-matrix(rnorm(len*2),len,2)
+X<-matrix(N^4,len,2)
+X=N
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+len<-1000
+N<-matrix(rnorm(len*2),len,2)
+X<-matrix(N^4,len,2)
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+ks.test(d,"pchisq",2) # formal KS test
+len<-1000
+N<-matrix(rnorm(len*2),len,2)
+X<-matrix(N^4,len,2)
+X2=matrix(X^(1/4),len,2)
+X=X2
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+ks.test(d,"pchisq",2) # formal KS test
+len<-1000
+N<-matrix(rnorm(len*2),len,2)
+X<-matrix(N^4,len,2)
+#X2=matrix(X^(1/4),len,2)
+#X=X2
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+len<-1000
+N<-matrix(rnorm(len*2),len,2)
+X<-matrix(N^4,len,2)
+X=N
+#X2=matrix(X^(1/4),len,2)
+#X=X2
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+ks.test(d,"pchisq",2) # formal KS test
+len<-1000
+N<-matrix(rnorm(len*2),len,2)
+X<-matrix(N^4,len,2)
+X2=matrix(X^(1/4),len,2)
+X=X2
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,len)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,2),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+ks.test(d,"pchisq",2) # formal KS test
+x<-rnorm(1000)^3 # sample   
+x<-x-min(x)+sd(x)
+qqnorm(x)# Normal probability plot for original variable
+grid()
+boxcox(x~1)            # Illustration of Log-Likelihood profile
+# Functions from package "car"
+p<-powerTransform(x)    # Estimaton of Box-Cox lambda
+y<-bcPower(x,p$lambda)# Box-Cox transformation
+# ... or by hands
+lambda <- 0.6
+y<-(x^lambda-1)/lambda
+qqnorm(y)# Normal probability plot for transformed variable 
+grid()
+x<-rnorm(1000)^3 # sample   
+x<-x-min(x)+sd(x)
+qqnorm(x)# Normal probability plot for original variable
+grid()
+x<-rnorm(1000)^3 # sample   
+#x<-x-min(x)+sd(x)
+qqnorm(x)# Normal probability plot for original variable
+grid()
+x<-rnorm(1000)^3 # sample   
+x<-x-min(x)+sd(x)
+qqnorm(x)# Normal probability plot for original variable
+grid()
+x<-rnorm(1000)^4 # sample   
+#x<-x-min(x)+sd(x)
+qqnorm(x)# Normal probability plot for original variable
+grid()
+q()
+help(ks)
+help(ks.test)
+##########################################################################
+#Q1 Find the correlation matrix for the data, study it, and comment.
+########################################################################### 
+dt<-read.table("salespeople.txt", header=FALSE)
+dt
+cor(dt)
+##########################################################################
+#Q2. Check data normality (univariate and multivariate)
+########################################################################### 
+#extract the columns of data into 7 seperate variables
+ x1=dt$V1
+ x2=dt$V2
+ x3=dt$V3
+ x4=dt$V4
+ x5=dt$V5
+ x6=dt$V6
+ x7=dt$V7
+x=cbind(x1,x2,x3,x4,x5,x6,x7)
+#checking normality of the variables
+qqnorm(x1)# Normal probability plot for original variable
+qqline(x1,col="red")
+grid()
+qqnorm(x2)# Normal probability plot for original variable
+qqline(x2,col="red")
+grid()
+qqnorm(x3)# Normal probability plot for original variable
+qqline(x3,col="red")
+grid()
+qqnorm(x4)# Normal probability plot for original variable
+qqline(x4,col="red")
+grid()
+qqnorm(x5)# Normal probability plot for original variable
+qqline(x5,col="red")
+grid()
+qqnorm(x6)# Normal probability plot for original variable
+qqline(x6,col="red")
+grid()
+qqnorm(x7)# Normal probability plot for original variable
+qqline(x7,col="red")
+grid()
+#checking multivariate normality of the seven variables
+X=cbind(x1,x2,x3,x4,x5,x6,x7)
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,50)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,7),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+library(MASS)     # ... for Multivariate Normal Distribution
+library(car)      # ... for ellipse plots
+X=cbind(x1,x2,x3,x4,x5,x6,x7)
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,50)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,7),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+ks.test(d,"pchisq",2) # formal KS test
+ks.test(d,"pchisq",7) # formal KS test
+#doing factor analysis on our dataset
+fa<-factanal(X,factors=1,rotation='none',scores='Bart')
+fa
+#=================================================
+library(MASS)     # ... for Multivariate Normal Distribution
+library(car)   
+#doing factor analysis on our dataset
+fa<-factanal(X,factors=1,rotation='none',scores='Bart')
+fa
+library(car)      # ... for ellipse plots
+##########################################################################
+#Q1 Find the correlation matrix for the data, study it, and comment.
+########################################################################### 
+dt<-read.table("salespeople.txt", header=FALSE)
+dt
+cor(dt)
+##########################################################################
+#Q2. Check data normality (univariate and multivariate)
+########################################################################### 
+#extract the columns of data into 7 seperate variables
+ x1=dt$V1
+ x2=dt$V2
+ x3=dt$V3
+ x4=dt$V4
+ x5=dt$V5
+ x6=dt$V6
+ x7=dt$V7
+x=cbind(x1,x2,x3,x4,x5,x6,x7)
+#checking normality of the variables
+qqnorm(x1)# Normal probability plot for original variable
+qqline(x1,col="red")
+grid()
+qqnorm(x2)# Normal probability plot for original variable
+qqline(x2,col="red")
+grid()
+qqnorm(x3)# Normal probability plot for original variable
+qqline(x3,col="red")
+grid()
+qqnorm(x4)# Normal probability plot for original variable
+qqline(x4,col="red")
+grid()
+qqnorm(x5)# Normal probability plot for original variable
+qqline(x5,col="red")
+grid()
+qqnorm(x6)# Normal probability plot for original variable
+qqline(x6,col="red")
+grid()
+qqnorm(x7)# Normal probability plot for original variable
+qqline(x7,col="red")
+grid()
+#checking multivariate normality of the seven variables
+X=cbind(x1,x2,x3,x4,x5,x6,x7)
+S1<-solve(cov(X))     # inverse of estimated covariance
+d<-rep(0,50)
+for (i in 1:len)
+d[i]<-t(X[i,])%*%S1%*%X[i,]  # distance from i-th point
+qqplot(qchisq(seq(1,len)/len,7),d) # qqplot with chi-sq quantiles
+segments(0,0,10,10,col='red',lwd=2)
+grid()
+ks.test(d,"pchisq",7) # formal KS test
+#ks.test(d,"pchisq",2) what is the difference in these two????
+fa<-factanal(X,factors=1,rotation='none',scores='Bart')
+fa
+fa<-factanal(X,factors=3,rotation='none',scores='Bart')
+fa
+X
+X=cbind(x1,x2,x3,x4,x5,x6,x7)
+dt<-read.table("salespeople.txt", header=FALSE)
+dt
+cor(dt)
+dt<-read.table("salespeople.txt", header=FALSE)
+dt
+dt<-read.table("C:\Users\btimalsina\Documents\biplav\unr\2nd sem\multivariate data analysis\report 4\salespeople.txt", header=FALSE)
+dt
+dt<-read.table("C:\Users\btimalsina\Documents\biplav\unr\2nd sem\multivariate data analysis\report 4\salespeople.txt", header=FALSE)
+dt<-read.table("salespeople.txt", header=FALSE)
+dt
+dt
+cor(dt)
+x1=dt$V1
+ x2=dt$V2
+ x3=dt$V3
+ x4=dt$V4
+ x5=dt$V5
+ x6=dt$V6
+ x7=dt$V7
+x=cbind(x1,x2,x3,x4,x5,x6,x7)
+fa<-factanal(x,factors=3,rotation='none',scores='Bart')
+fa
+fa<-factanal(x,factors=2,rotation='none',scores='Bart')
+fa
+fa<-factanal(x,factors=1,rotation='none',scores='Bart')
+fa
+fa<-factanal(x,factors=4,rotation='none',scores='Bart')
+fa
+fa<-factanal(x,factors=4,rotation='none',scores='Bart')
+fa
+fa<-factanal(x,factors=4,rotation='none',scores='Bart')
+fa<-factanal(x,factors=3,rotation='none',scores='Bart')
+fa<-factanal(x,factors=4,rotation='none',scores='Bart')
+fa<-factanal(x,factors=3,rotation='none',scores='Bart')
+fa<-factanal(x,factors=3,rotation='none',scores='Bart')
+fa
+fa<-factanal(x,factors=2,rotation='none',scores='Bart')
+fa
+fa<-factanal(x,factors=1,rotation='none',scores='Bart')
+fa
+fa<-factanal(x,factors=1,rotation='varimax',scores='Bart')
+fa
+fa<-factanal(x,factors=2,rotation='varimax',scores='Bart')
+fa
+fa<-factanal(x,factors=3,rotation='varimax',scores='Bart')
+fa
+fa<-factanal(x,factors=3,rotation='promax',scores='Bart')
+fa
+fa<-factanal(x,factors=2,rotation='promax',scores='Bart')
+fa
+fa<-factanal(x,factors=1,rotation='promax',scores='Bart')
+fa
+fa<-factanal(x,factors=3,rotation='promax',scores='Bart')
+fa
+fa<-factanal(x,factors=1,rotation='promax',scores='Bart')
+fa
+fa<-factanal(x,factors=2,rotation='promax',scores='Bart')
+fa
+fa<-factanal(x,factors=2,rotation='varimax',scores='Bart')
+fa
+fa<-factanal(x,factors=1,rotation='varimax',scores='Bart')
+fa
+fa<-factanal(x,factors=1,rotation='promax',scores='Bart')
+fa
+fa<-factanal(x,factors=1,rotation='none',scores='Bart')
+fa
+fa<-factanal(x,factors=2,rotation='none',scores='Bart')
+fa
+fa<-factanal(x,factors=2,rotation='varimax',scores='Bart')
+fa
+fa<-factanal(x,factors=2,rotation='promax',scores='Bart')
+fa
+fa<-factanal(x,factors=3,rotation='promax',scores='Bart')
+fa
+fa<-factanal(x,factors=3,rotation='varimax',scores='Bart')
+fa
+fa<-factanal(x,factors=3,rotation='none',scores='Bart')
+fa
+L<-fa$loadings
+U<-fa$uniquenesses
+res<-cor(Z)-(L%*%t(L)+diag(U))
+res*(res>.01)
+library(MASS)     # ... for Multivariate Normal Distribution
+library(car)      # ... for ellipse plots
+#================================================
+# Simple example, with a block covariance matrix
+#================================================
+Sigma<-matrix(c(10,4,5,4,3,2,5,2,3),3,3)
+X<-mvrnorm(n=1000,c(0,0,0),Sigma)
+Y<-mvrnorm(n=1000,c(0,0,0),2*Sigma)
+Z<-cbind(X,Y)
+# FA
+#=======================================================
+fa<-factanal(Z,factors=2,rotation='promax',scores='Bart')
+fa
+# Residuals
+#==============================
+L<-fa$loadings
+U<-fa$uniquenesses
+res<-cor(Z)-(L%*%t(L)+diag(U))
+res*(res>.01)
+q()

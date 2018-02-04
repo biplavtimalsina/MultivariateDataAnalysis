@@ -1,0 +1,512 @@
+................................
+ X<-P[,c(8,1,4,5)]
+Y<-P[,c(10,9,2,3,6,7)]
+cancor(X,Y) 
+ggpairs(Y)
+#.99814
+ggpairs(X)
+ggpairs(Y)
+ggpairs(X)
+ggpairs(P)
+ggpairs(P)
+ X<-P[,c(2,4,5,9)]
+Y<-P[,c(1,3,6,7,8,10)]
+cancor(X,Y) 
+ X<-P[,c(2,4,5,9,8)]
+Y<-P[,c(1,3,6,7,10)]
+cancor(X,Y) 
+ X<-P[,c(8,1,4,5)]
+Y<-P[,c(10,9,2,3,6,7)]
+cancor(X,Y) 
+ggpairs(X)
+ X<-P[,c(9,8,10,5,4,6)]
+Y<-P[,c(1,3,7,2)]
+cancor(X,Y)
+ X<-P[,c(8,1,4,5)]
+Y<-P[,c(10,9,2,3,6,7)]
+cancor(X,Y) 
+?cancor
+ggpairs(P)
+?ggpairs
+ X<-P[,c(8,4,5,2)]
+Y<-P[,c(1,3,6,7,9,10)]
+cancor(X,Y) 
+X<-PD[,c(1,2,4,7,9)]
+Y<-PD[,c(3,8,10,5,6)]
+ggpairs(X)
+cor(X,Y)
+cancor(X,Y)
+library(MASS)     # ... for Multivariate Normal Distribution
+library(car)      # ... for ellipse plots
+table<-read.table('Lab3_close.csv',sep=',', header=TRUE)
+# Remove long-term trend
+#=========================
+P<-table[,seq(2,11)]
+cor(P)# remove the dates
+P<-log10(P)
+PD<-P*0
+for (i in seq(1,10))
+{
+t<-ts(P[,i],frequency=365)
+s<-stl(t,s.window=250)
+PD[,i]=t-s$time.series[,2]
+}
+X<-PD[,c(1,2,4,7,9)]
+Y<-PD[,c(3,8,10,5,6)]
+ggpairs(X)
+cor(X,Y)
+cancor(X,Y)
+X<-P[,c(1,2,4,5,6,7,9)]
+Y<-P[,c(3,8,10)]
+cor(X,Y)
+ggpairs(Y)
+cancor(X,Y) 
+#.9891
+X<-P[,c(1,2,4,5,6,7,9,8)]
+Y<-P[,c(3,10)]
+cor(X,Y)
+cancor(X,Y)
+X<-PD[,c(1,2,4,7,9)]
+Y<-PD[,c(3,8,10,5,6)]
+cor(X,Y)
+cancor(X,Y)
+X<-PD[,c(1,2,4,5,6,7,9)]
+Y<-PD[,c(3,8,10)]
+cor(X,Y)
+cancor(X,Y) 
+X<-PD[,c(1,2,4,5,6,7,9,8)]
+Y<-PD[,c(3,10)]
+cor(X,Y)
+cancor(X,Y) 
+PD[,1]
+ggpairs(PD)
+P<-table[,seq(2,11)]
+cor(P)
+P<-log10(P
+)
+P
+PD<-P*0
+PD
+X<-PD[,c(1,2,4,7,9)]
+Y<-PD[,c(3,8,10,5,6)]
+cor(X,Y)
+cancor(X,Y)
+P<-table[,seq(2,11)]
+cor(P)# remove the dates
+P<-log10(P)
+PD<-P*0
+for (i in seq(1,10))
+{
+t<-ts(P[,i],frequency=365)
+s<-stl(t,s.window=250)
+PD[,i]=t-s$time.series[,2]
+}
+X<-PD[,c(1,2,4,7,9)]
+Y<-PD[,c(3,8,10,5,6)]
+cor(X,Y)
+cancor(X,Y)
+X<-PD[,c(1,2,4,5,6,7,9)]
+Y<-PD[,c(3,8,10)]
+cor(X,Y)
+cancor(X,Y)
+X<-PD[,c(1,2,4,5,6,7,9,8)]
+Y<-PD[,c(3,10)]
+cor(X,Y)
+cancor(X,Y) 
+X<-P[,c(1,4,5,6,7,9)]
+Y<-P[,c(3,8,10,2)]
+cor(X,Y)
+cancor(X,Y)
+X<-PD[,c(1,4,5,6,7,9)]
+Y<-PD[,c(3,8,10,2)]
+cor(X,Y)
+cancor(X,Y)
+X<-PD[,c(4,7,9)]
+Y<-PD[,c(1,2,3,5,6,8,10)]
+cor(X,Y)
+cancor(X,Y)
+#.992
+X<-PD[,c(2,4,7,9)]
+Y<-PD[,c(1,3,5,6,8,10)]
+cor(X,Y)
+cancor(X,Y)
+X<-P[,c(2,4,5,7,9)]
+Y<-P[,c(1,3,6,8,10)]
+cor(X,Y)
+cancor(X,Y)
+X<-PD[,c(2,4,5,7,9)]
+Y<-PD[,c(1,3,6,8,10)]
+cor(X,Y)
+cancor(X,Y)
+#.985
+X<-PD[,c(2,4,5,7,9)]
+Y<-PD[,c(1,3,6,8,10)]
+cor(X,Y)
+cancor(X,Y)
+X<-PD[,c(8,1,2,3,4,7)]
+Y<-PD[,c(10,9,5,6)]
+cor(X,Y)
+cancor(X,Y) 
+X<-PD[,c(8,1,2,4,7)]
+Y<-PD[,c(10,9,5,6,3)]
+cor(X,Y)
+cancor(X,Y) 
+X<-PD[,c(8,1,2,4)]
+Y<-PD[,c(10,9,5,6,3,7)]
+cor(X,Y)
+cancor(X,Y)
+ X<-PD[,c(1,2,4)]
+Y<-PD[,c(10,9,5,6,3,7,8)]
+cor(X,Y)
+cancor(X,Y) 
+ X<-PD[,c(2,4,3)]
+Y<-PD[,c(9,5,10,1,6,7,8)]
+cor(X,Y)
+cancor(X,Y) 
+X<-PD[,c(8,1,4)]
+Y<-PD[,c(10,9,2,5,6,3,7)]
+cor(X,Y)
+cancor(X,Y) 
+ X<-PD[,c(8,1,4,5)]
+Y<-PD[,c(10,9,2,3,6,7)]
+cancor(X,Y) 
+ggpairs(X)
+ X<-P[,c(9,8,10,5,4,6)]
+Y<-P[,c(1,3,7,2)]
+cancor(X,Y) 
+ X<-PD[,c(9,8,10,5,4,6)]
+Y<-PD[,c(1,3,7,2)]
+cancor(X,Y) 
+ X<-PD[,c(2,4,5,9,8)]
+Y<-PD[,c(1,3,6,7,10)]
+cancor(X,Y) 
+ X<-P[,c(8,4,5,2)]
+Y<-P[,c(1,3,6,7,9,10)]
+cancor(X,Y) 
+ X<-PD[,c(8,4,5,2)]
+Y<-PD[,c(1,3,6,7,9,10)]
+cancor(X,Y) 
+library(MASS)
+X<-iris
+plot(X)
+X<-iris[,-5]
+d<-dist(iris[,3:4],method='euclidean') 
+h<-hclust(d,method='sin')
+d<-dist(X,method='euclidean')
+h<-hclust(d,method='com')
+plot(h,hang=-.01,xlab='',sub='',main='')
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+plot(X[,2],X[,4],pch=19,xlab="Sepal Width", ylab="Petal Width")# versicolor
+points(X[I1,2],X[I1,4],col='red',pch=19)# setosa
+points(X[I2,2],X[I2,4],col='blue',pch=19) # Virginica
+.......................................................................
+X<-cbind(iris[,3],iris[,4])
+#question 3
+###########################################
+#euclidean single
+d<-dist(X,method='euclidean') 
+h<-hclust(d,method='sin')
+windows()
+plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+windows()
+plot(X[,1],X[,2],pch=19)
+points(X[I1,1],X[I1,2],col='red',pch=19)
+points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+########################################
+#euclidean max
+d<-dist(X,method='euclidean') 
+h<-hclust(d,method='com')
+windows()
+plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+windows()
+plot(X[,1],X[,2],pch=19)
+points(X[I1,1],X[I1,2],col='red',pch=19)
+points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+##################################################
+#euclidean median
+#euclidean average
+d<-dist(X,method='euclidean') 
+h<-hclust(d,method='ave')
+windows()
+plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+windows()
+plot(X[,1],X[,2],pch=19)
+points(X[I1,1],X[I1,2],col='red',pch=19)
+points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='euclidean') 
+ h<-hclust(d,method='med')
+windows()
+ plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+ c<-cutree(h,k=3)
+ I1<-c==1
+ I2<-c==2
+ windows()
+ plot(X[,1],X[,2],pch=19)
+ points(X[I1,1],X[I1,2],col='red',pch=19)
+ points(X[I2,1],X[I2,2],col='blue',pch=19)
+table (c,iris$Species)
+d<-dist(X,method='manhattan') 
+h<-hclust(d,method='single')
+windows()
+plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+windows()
+plot(X[,1],X[,2],pch=19)
+points(X[I1,1],X[I1,2],col='red',pch=19)
+points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='manhattan') 
+h<-hclust(d,method='com')
+windows()
+plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+windows()
+plot(X[,1],X[,2],pch=19)
+points(X[I1,1],X[I1,2],col='red',pch=19)
+points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='manhattan') 
+h<-hclust(d,method='com')
+windows()
+plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+windows()
+plot(X[,1],X[,2],pch=19)
+points(X[I1,1],X[I1,2],col='red',pch=19)
+points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='manhattan') 
+h<-hclust(d,method='com')
+windows()
+plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+windows()
+plot(X[,1],X[,2],pch=19)
+points(X[I1,1],X[I1,2],col='red',pch=19)
+points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='manhattan') 
+h<-hclust(d,method='ave')
+windows()
+plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+windows()
+plot(X[,1],X[,2],pch=19)
+points(X[I1,1],X[I1,2],col='red',pch=19)
+points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='manhattan') 
+h<-hclust(d,method='ave')
+windows()
+plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+windows()
+plot(X[,1],X[,2],pch=19)
+points(X[I1,1],X[I1,2],col='red',pch=19)
+points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='manhattan') 
+h<-hclust(d,method='ave')
+windows()
+plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+c<-cutree(h,k=3)
+I1<-c==1
+I2<-c==2
+windows()
+plot(X[,1],X[,2],pch=19)
+points(X[I1,1],X[I1,2],col='red',pch=19)
+points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='minkowski',p=2) 
+ h<-hclust(d,method='sing')
+ par(bg='yellow')
+ plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+ c<-cutree(h,k=3)
+ I1<-c==1
+ I2<-c==2
+ plot(X[,1],X[,2],pch=19)
+ points(X[I1,1],X[I1,2],col='red',pch=19)
+ points(X[I2,1],X[I2,2],col='blue',pch=19)
+d<-dist(X,method='minkowski',p=2) 
+ h<-hclust(d,method='sing')
+window()
+ plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+ c<-cutree(h,k=3)
+ I1<-c==1
+ I2<-c==2
+windows()
+ plot(X[,1],X[,2],pch=19)
+ points(X[I1,1],X[I1,2],col='red',pch=19)
+ points(X[I2,1],X[I2,2],col='blue',pch=19)
+d<-dist(X,method='minkowski',p=2) 
+ h<-hclust(d,method='sing')
+window()
+ plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+ c<-cutree(h,k=3)
+ I1<-c==1
+ I2<-c==2
+windows()
+ plot(X[,1],X[,2],pch=19)
+ points(X[I1,1],X[I1,2],col='red',pch=19)
+ points(X[I2,1],X[I2,2],col='blue',pch=19)
+d<-dist(X,method='minkowski',p=2) 
+ h<-hclust(d,method='sing')
+window()
+ plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+ c<-cutree(h,k=3)
+ I1<-c==1
+ I2<-c==2
+windows()
+ plot(X[,1],X[,2],pch=19)
+ points(X[I1,1],X[I1,2],col='red',pch=19)
+ points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='minkowski',p=2) 
+ h<-hclust(d,method='com')
+window()
+ plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+ c<-cutree(h,k=3)
+ I1<-c==1
+ I2<-c==2
+windows()
+ plot(X[,1],X[,2],pch=19)
+ points(X[I1,1],X[I1,2],col='red',pch=19)
+ points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='minkowski',p=2) 
+ h<-hclust(d,method='ave')
+window()
+ plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+ c<-cutree(h,k=3)
+ I1<-c==1
+ I2<-c==2
+windows()
+ plot(X[,1],X[,2],pch=19)
+ points(X[I1,1],X[I1,2],col='red',pch=19)
+ points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='minkowski',p=2) 
+ h<-hclust(d,method='ave')
+windows()
+ plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+ c<-cutree(h,k=3)
+ I1<-c==1
+ I2<-c==2
+windows()
+ plot(X[,1],X[,2],pch=19)
+ points(X[I1,1],X[I1,2],col='red',pch=19)
+ points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+d<-dist(X,method='minkowski',p=2) 
+ h<-hclust(d,method='med')
+windows()
+ plot(h,hang=-.01,xlab='',sub='',main='',label=iris$Species)
+ c<-cutree(h,k=3)
+ I1<-c==1
+ I2<-c==2
+windows()
+ plot(X[,1],X[,2],pch=19)
+ points(X[I1,1],X[I1,2],col='red',pch=19)
+ points(X[I2,1],X[I2,2],col='blue',pch=19)
+table(c,iris$Species)
+require(ggplot2)
+require(GGally)
+require(CCA)
+library(MASS)     # ... for Multivariate Normal Distribution
+library(car)      # ... for ellipse plots
+table<-read.table('Lab3_close.csv',sep=',', header=TRUE)
+# Remove long-term trend
+#=========================
+table
+table[1,]
+P<-table[,seq(2,11)]
+cor(P)# remove the dates
+P<-log10(P)
+PD<-P*0
+for (i in seq(1,10))
+{
+t<-ts(P[,i],frequency=365)
+s<-stl(t,s.window=250)
+PD[,i]=t-s$time.series[,2]
+}
+X<-PD[,c(8,1,2,3,4,7)]
+Y<-PD[,c(10,9,5,6)]
+cor(X,Y)
+cancor(X,Y) 
+#.9964
+#.828
+X<-PD[,c(2,4,5,8)]
+Y<-PD[,c(1,3,6,7,9,10)]
+cor(X,Y)
+cancor(X,Y)
+ X<-PD[,c(1,9,4)]
+Y<-PD[,c(10,2,5,6,3,7,8)]
+cor(X,Y)
+cancor(X,Y)
+X<-PD[,c(1,2,4,5,6,7,9,8)]
+Y<-PD[,c(3,10)]
+cor(X,Y)
+ X<-PD[,c(8,1,2,4,7)]
+Y<-PD[,c(10,9,5,6,3)]
+cor(X,Y)
+cancor(X,Y) 
+#.9972
+#.82
+........................................
+X<-PD[,c(8,1,2,3,4,7)]
+Y<-PD[,c(10,9,5,6)]
+cor(X,Y)
+cancor(X,Y) 
+#.9964
+#.828
+ggpairs(X)
+require(ggplot2)
+require(GGally)
+require(CCA)
+library(MASS)     # ... for Multivariate Normal Distribution
+library(car)      # ... for ellipse plots
+table<-read.table('Lab3_close.csv',sep=',', header=TRUE)
+# Remove long-term trend
+#=========================
+P<-table[,seq(2,11)]
+cor(P)# remove the dates
+P<-log10(P)
+PD<-P*0
+for (i in seq(1,10))
+{
+t<-ts(P[,i],frequency=365)
+s<-stl(t,s.window=250)
+PD[,i]=t-s$time.series[,2]
+}
+X<-PD[,c(8,1,2,3,4,7)]
+Y<-PD[,c(10,9,5,6)]
+cor(X,Y)
+cancor(X,Y) 
+ggpairs(X)
+q()
